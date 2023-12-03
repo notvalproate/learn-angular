@@ -53,4 +53,54 @@
 
 	}
 
+
+	.add-wish-form {
+		display: flex;
+		flex-direction: column;
+		row-gap: 15px;
+
+		.add-wish-title {
+			font-size: 300%;
+			font-weight: 600;
+		}
+
+		.wish-input{
+			display: flex;
+			width: 100%;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.add-wish-text {
+			width: 86%;
+			height: 50px;
+			border-radius: 20px;
+			border: none;
+			background-color: #0E1213;
+			font-family: 'Urbanist', sans-serif;
+			color: #E4E9EB;
+			font-size: 180%;
+			padding-left: 20px;
+
+			&:focus {
+				outline: 2px #a89ad2 solid;
+			}
+		}
+
+		.add-wish-button {
+			font-family: 'Urbanist', sans-serif;
+			color: #E4E9EB;
+			font-size: 125%;
+			border: none;
+			border-radius: 20px;
+			background-color: #a89ad2;
+			height: 50px;
+			width: 10%;
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
+
+	}
 }
