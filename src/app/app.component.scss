@@ -19,17 +19,6 @@
 		padding: 0;
 		list-style-type: none;
 
-		.faicon {
-			font-size: 250%;
-
-			&:hover {
-				cursor: pointer;
-				color: yellow;
-			}
-
-			transition: 0.2s ease;
-		}
-
 		.wish-item {
 			margin: 10px;
 			padding: 10px;
@@ -43,6 +32,25 @@
 		.wish-text {
 			font-size: 180%;
 		}
+
+		.faicon {
+			font-size: 250%;
+
+			&:hover {
+				cursor: pointer;
+			}
+
+			transition: 0.2s ease;
+		}
+
+		.xmark:hover {
+			color: rgb(255, 101, 101);
+		}
+
+		.checkmark:hover {
+			color: rgb(91, 232, 91);
+		}
+
 	}
 
 }

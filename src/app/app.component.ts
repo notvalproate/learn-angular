@@ -15,25 +15,23 @@ import { WishItem } from '../shared/wishItem';
 	styleUrl: './app.component.scss'
 })
 export class AppComponent {
-	constructor() {
-		for(let i = 0; i < this.wishItems.length; i++) {
-			if(this.wishItems[i].completed) {
-				this.completed.push(this.wishItems[i]);
-			} else {
-				this.notCompleted.push(this.wishItems[i]);
-			}
-		}
-	}
-
 	wishItems : WishItem[] = [
 		new WishItem('Learn Angular'),
 		new WishItem('Be Happy', true),
 		new WishItem('Play Roblox')
 	];
 
-	completed : WishItem[] = []
-	notCompleted : WishItem[] = []
+	completed : WishItem[] = this.wishItems.filter((item) => item.completed);
+	notCompleted : WishItem[] = this.wishItems.filter((item) => !item.completed);
 
 	faSquareCheck = faSquareCheck;
 	faSquareXmark = faSquareXmark;
+
+	addToCompleted(index : number) {
+		this.completed.push(...this.notCompleted.splice(index, 1));
+	}
+
+	addToNotCompleted(index : number) {
+		this.notCompleted.push(...this.completed.splice(index, 1));
+	}
 }
