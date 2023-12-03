@@ -1,28 +1,6 @@
 <div class="wishlist-container">
 
-	<h1 class="title">Completed Wishes</h1>
-	<ul class="wish-list">
-		@for (item of completed; track $index) {
-			<li class="wish-item">
-				<fa-icon [icon]="faSquareXmark" class="faicon xmark" (click)="addToNotCompleted($index)"></fa-icon>
-				<span class="wish-text">{{ item.wishText }}</span>
-			</li>
-		} @empty {
-			<span class="wish-text">No wishes completed!</span>
-		}
-	</ul>
-
-	<h1 class="title">Incomplete Wishes</h1>
-	<ul class="wish-list">
-		@for (item of notCompleted; track $index) {
-			<li class="wish-item">
-				<fa-icon [icon]="faSquareCheck" class="faicon checkmark" (click)="addToCompleted($index)"></fa-icon>
-				<span class="wish-text">{{ item.wishText }}</span>
-			</li>
-		} @empty {
-			<span class="wish-text">No wishes pending!</span>
-		}
-	</ul>
+	<wish-list-display [wishes]="wishItems"></wish-list-display>
 
 	<form class="add-wish-form">
 		<label for="input-wish" class="add-wish-title">Add New Wish</label>

@@ -3,15 +3,14 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faSquareCheck, faSquareXmark } from '@fortawesome/free-solid-svg-icons';
+import { WishListDisplayComponent } from './wish-list-display/wish-list-display.component';
 
 import { WishItem } from '../shared/wishItem';
 
 @Component({
 	selector: 'app-root',
 	standalone: true,
-	imports: [CommonModule, RouterOutlet, FontAwesomeModule, FormsModule],
+	imports: [CommonModule, RouterOutlet, FormsModule, WishListDisplayComponent],
 	templateUrl: './app.component.html',
 	styleUrl: './app.component.scss'
 })
@@ -22,24 +21,14 @@ export class AppComponent {
 		new WishItem('Play Roblox')
 	];
 
-	completed : WishItem[] = this.wishItems.filter((item) => item.completed);
-	notCompleted : WishItem[] = this.wishItems.filter((item) => !item.completed);
-
-	faSquareCheck = faSquareCheck;
-	faSquareXmark = faSquareXmark;
-
 	inputWish : string = '';
 
-	addToCompleted(index : number) {
-		this.completed.push(...this.notCompleted.splice(index, 1));
-	}
-
-	addToNotCompleted(index : number) {
-		this.notCompleted.push(...this.completed.splice(index, 1));
-	}
-
 	addWish() {
-		this.notCompleted.push(new WishItem(this.inputWish));
+		this.wishItems.push(new WishItem(this.inputWish));
 		this.inputWish = '';
+	}
+
+	functionTemp() {
+		console.log('clicked!');
 	}
 }
