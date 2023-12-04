@@ -2,7 +2,7 @@
 <ul class="wish-list">
 	@for (item of completed; track $index) {
 		<li class="wish-item">
-			<fa-icon [icon]="faSquareXmark" class="faicon xmark" (click)="addToNotCompleted($index)"></fa-icon>
+			<fa-icon [icon]="faSquareXmark" class="faicon xmark" (click)="toggleComplete(item)"></fa-icon>
 			<span class="wish-text">{{ item.wishText }}</span>
 		</li>
 	} @empty {
@@ -14,7 +14,7 @@
 <ul class="wish-list">
 	@for (item of notCompleted; track $index) {
 		<li class="wish-item">
-			<fa-icon [icon]="faSquareCheck" class="faicon checkmark" (click)="addToCompleted($index)"></fa-icon>
+			<fa-icon [icon]="faSquareCheck" class="faicon checkmark" (click)="toggleComplete(item)"></fa-icon>
 			<span class="wish-text">{{ item.wishText }}</span>
 		</li>
 	} @empty {
