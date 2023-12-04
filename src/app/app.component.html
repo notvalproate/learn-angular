@@ -2,11 +2,5 @@
 
 	<wish-list-display [wishes]="wishItems"></wish-list-display>
 
-	<form class="add-wish-form">
-		<label for="input-wish" class="add-wish-title">Add New Wish</label>
-		<div class="wish-input">
-			<input type="text" [(ngModel)]="inputWish" name="input-wish" class="add-wish-text" autocomplete="off">
-			<button type="submit" class="add-wish-button" (click)="addWish()">Add Wish</button>
-		</div>
-	</form>
+	<add-wish-form (addWish)="wishItems.push($event)"></add-wish-form>
 </div>
