@@ -1,22 +1,18 @@
 import { Component, Input } from '@angular/core';
 
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faSquareCheck, faSquareXmark } from '@fortawesome/free-solid-svg-icons';
-
 import { WishItem } from '../../shared/wishItem';
+
+import { WishItemComponent } from '../wish-item/wish-item.component';
 
 @Component({
   selector: 'wish-list-display',
   standalone: true,
-  imports: [FontAwesomeModule],
+  imports: [WishItemComponent],
   templateUrl: './wish-list-display.component.html',
   styleUrl: './wish-list-display.component.scss'
 })
 export class WishListDisplayComponent {
 	@Input() wishes : WishItem[] = [];
-
-	faSquareCheck = faSquareCheck;
-	faSquareXmark = faSquareXmark;
 
 	get completed() : WishItem[] {
 		return this.wishes.filter((item) => item.completed);
@@ -24,9 +20,5 @@ export class WishListDisplayComponent {
 
 	get notCompleted() : WishItem[] {
 		return this.wishes.filter((item) => !item.completed);
-	}
-
-	toggleComplete(item : WishItem) {
-		item.completed = !item.completed;
 	}
 }

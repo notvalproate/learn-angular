@@ -1,0 +1,8 @@
+<li class="wish-item">
+	@if (wishComplete) {
+		<fa-icon [icon]="faSquareXmark" class="faicon xmark" (click)="toggleComplete()"></fa-icon>
+	} @else {
+		<fa-icon [icon]="faSquareCheck" class="faicon checkmark" (click)="toggleComplete()"></fa-icon>
+	}
+	<span class="wish-text">{{ wishText }}</span>
+</li>

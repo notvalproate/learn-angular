@@ -1,0 +1,31 @@
+.wish-item {
+	margin: 10px;
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	column-gap: 10px;
+	background-color: #0E1213;
+	border-radius: 10px;
+}
+
+.wish-text {
+	font-size: 180%;
+}
+
+.faicon {
+	font-size: 250%;
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	transition: 0.2s ease;
+}
+
+.xmark:hover {
+	color: rgb(255, 101, 101);
+}
+
+.checkmark:hover {
+	color: rgb(104, 241, 104);
+}
