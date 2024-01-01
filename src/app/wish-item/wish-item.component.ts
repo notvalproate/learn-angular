@@ -5,7 +5,7 @@ import { faSquareCheck, faSquareXmark } from '@fortawesome/free-solid-svg-icons'
 
 import { WishItem } from '../../shared/wishItem';
 
-import events from '../../shared/services/EventService';
+import { EventService } from '../../shared/services/EventService';
 
 @Component({
   selector: 'wish-item',
@@ -15,6 +15,8 @@ import events from '../../shared/services/EventService';
   styleUrl: './wish-item.component.scss'
 })
 export class WishItemComponent {
+	constructor(private events : EventService) { }
+
 	@Input() wish! : WishItem;
 
 	faSquareCheck = faSquareCheck;
@@ -37,7 +39,7 @@ export class WishItemComponent {
 	}
 
 	removeWish() {
-		events.emit('removeWish', this.wish);
+		this.events.emit('removeWish', this.wish);
 	}
 
 	toggleComplete() {

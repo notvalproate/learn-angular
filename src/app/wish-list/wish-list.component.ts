@@ -4,7 +4,7 @@ import { WishItem } from '../../shared/wishItem';
 import { WishListDisplayComponent } from '../wish-list-display/wish-list-display.component';
 import { AddWishFormComponent } from '../add-wish-form/add-wish-form.component';
 
-import events from '../../shared/services/EventService';
+import { EventService } from '../../shared/services/EventService';
 
 @Component({
   selector: 'wish-list',
@@ -14,16 +14,16 @@ import events from '../../shared/services/EventService';
   styleUrl: './wish-list.component.scss'
 })
 export class WishListComponent {
-	wishItems : WishItem[] = [
-		new WishItem('Learn Angular'),
-		new WishItem('Be Happy', true),
-		new WishItem('Play Roblox')
-	];
-
-	constructor() {
+	constructor(events : EventService) {
 		events.on('removeWish', (wish : WishItem) => {
 			let index = this.wishItems.indexOf(wish);
 			this.wishItems.splice(index, 1);
 		})
 	}
+
+	wishItems : WishItem[] = [
+		new WishItem('Learn Angular'),
+		new WishItem('Be Happy', true),
+		new WishItem('Play Roblox')
+	];
 }
