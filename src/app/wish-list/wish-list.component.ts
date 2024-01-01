@@ -4,6 +4,8 @@ import { WishItem } from '../../shared/wishItem';
 import { WishListDisplayComponent } from '../wish-list-display/wish-list-display.component';
 import { AddWishFormComponent } from '../add-wish-form/add-wish-form.component';
 
+import events from '../../shared/services/EventService';
+
 @Component({
   selector: 'wish-list',
   standalone: true,
@@ -17,4 +19,10 @@ export class WishListComponent {
 		new WishItem('Be Happy', true),
 		new WishItem('Play Roblox')
 	];
+
+	constructor() {
+		events.on('removeWish', (wishText) => {
+			console.log(wishText);
+		})
+	}
 }

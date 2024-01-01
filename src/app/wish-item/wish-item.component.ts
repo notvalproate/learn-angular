@@ -5,6 +5,8 @@ import { faSquareCheck, faSquareXmark } from '@fortawesome/free-solid-svg-icons'
 
 import { WishItem } from '../../shared/wishItem';
 
+import events from '../../shared/services/EventService';
+
 @Component({
   selector: 'wish-item',
   standalone: true,
@@ -17,6 +19,26 @@ export class WishItemComponent {
 
 	faSquareCheck = faSquareCheck;
 	faSquareXmark = faSquareXmark;
+
+	getIcon() {
+		return this.wish.completed ? faSquareXmark : faSquareCheck;
+	}
+
+	getCssClasses() {
+		let classes : string[] = ['faicon'];
+
+		if(this.wish.completed) {
+			classes.push('xmark');
+		} else {
+			classes.push('checkmark');
+		}
+
+		return classes;
+	}
+
+	removeWish() {
+		events.emit('removeWish', this.wish.wishText);
+	}
 
 	toggleComplete() {
 		this.wish.completed = !this.wish.completed;

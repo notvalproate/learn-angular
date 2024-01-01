@@ -1,8 +1,11 @@
 <li class="wish-item">
-	@if (wish.completed) {
-		<fa-icon [icon]="faSquareXmark" class="faicon xmark" (click)="toggleComplete()"></fa-icon>
-	} @else {
-		<fa-icon [icon]="faSquareCheck" class="faicon checkmark" (click)="toggleComplete()"></fa-icon>
-	}
-	<span class="wish-text">{{ wish.wishText }}</span>
+	<div class="wish-wrapper">
+		<fa-icon
+			[icon]="getIcon()"
+			[class]="getCssClasses()"
+			(click)="toggleComplete()">
+		</fa-icon>
+		<span class="wish-text">{{ wish.wishText }}</span>
+	</div>
+	<span class="remove-wish" (click)="removeWish()">Remove</span>
 </li>
