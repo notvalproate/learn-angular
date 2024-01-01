@@ -13,16 +13,12 @@ import { WishItem } from '../../shared/wishItem';
   styleUrl: './wish-item.component.scss'
 })
 export class WishItemComponent {
-	@Input() wishText! : string;
-
-	@Input() wishComplete! : boolean;
-	@Output() wishCompleteChange : EventEmitter<boolean> = new EventEmitter<boolean>;
+	@Input() wish! : WishItem;
 
 	faSquareCheck = faSquareCheck;
 	faSquareXmark = faSquareXmark;
 
 	toggleComplete() {
-		this.wishComplete = !this.wishComplete;
-		this.wishCompleteChange.emit(this.wishComplete);
+		this.wish.completed = !this.wish.completed;
 	}
 }

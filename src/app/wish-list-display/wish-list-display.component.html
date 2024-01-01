@@ -1,7 +1,7 @@
 <h1 class="title">Completed Wishes</h1>
 <ul class="wish-list">
 	@for (item of completed; track $index) {
-		<wish-item [wishText]="item.wishText" [(wishComplete)]="item.completed"></wish-item>
+		<wish-item [wish]="item"></wish-item>
 	} @empty {
 		<span class="wish-text">No wishes completed!</span>
 	}
@@ -10,7 +10,7 @@
 <h1 class="title">Incomplete Wishes</h1>
 <ul class="wish-list">
 	@for (item of notCompleted; track $index) {
-		<wish-item [wishText]="item.wishText" [(wishComplete)]="item.completed"></wish-item>
+		<wish-item [wish]="item"></wish-item>
 	} @empty {
 		<span class="wish-text">No wishes pending!</span>
 	}
