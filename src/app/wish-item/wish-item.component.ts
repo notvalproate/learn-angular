@@ -37,7 +37,7 @@ export class WishItemComponent {
 	}
 
 	removeWish() {
-		events.emit('removeWish', this.wish.wishText);
+		events.emit('removeWish', this.wish);
 	}
 
 	toggleComplete() {

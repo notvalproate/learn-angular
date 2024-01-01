@@ -21,8 +21,9 @@ export class WishListComponent {
 	];
 
 	constructor() {
-		events.on('removeWish', (wishText) => {
-			console.log(wishText);
+		events.on('removeWish', (wish : WishItem) => {
+			let index = this.wishItems.indexOf(wish);
+			this.wishItems.splice(index, 1);
 		})
 	}
 }
